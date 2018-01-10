@@ -24,5 +24,7 @@ public class AcceptCoinTest {
         VendingMachine vendingMachine = new VendingMachine();
         vendingMachine.insertCoin(Coin.nickel);
         assertTrue(vendingMachine.isCoinValid());
+        vendingMachine.resetState();
+        assertFalse(vendingMachine.isCoinValid());
     }
 }
