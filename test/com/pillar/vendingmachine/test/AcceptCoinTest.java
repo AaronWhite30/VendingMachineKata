@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 public class AcceptCoinTest {
@@ -31,5 +32,11 @@ public class AcceptCoinTest {
         assertTrue(vendingMachine.isCoinValid());
         vendingMachine.resetState();
         assertFalse(vendingMachine.isCoinValid());
+    }
+
+    @Test
+    public void testValidCoinAccumulates(){
+        vendingMachine.insertCoin(Coin.nickel);
+        assertTrue(vendingMachine.getCoinsAccumulated() == Coin.nickel.getCoinValue());
     }
 }
