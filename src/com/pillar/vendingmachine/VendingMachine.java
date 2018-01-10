@@ -7,6 +7,7 @@ import java.util.List;
 
 public class VendingMachine {
 
+    private String display = "INSERT COIN";
     private boolean coinSentToCoinReturn = false;
     private boolean coinValid = false;
     private List<Coin> accumulatedCoins = new ArrayList<>();
@@ -39,5 +40,9 @@ public class VendingMachine {
     public void resetState(){
         coinSentToCoinReturn = false;
         coinValid = false;
+    }
+
+    public String getDisplay(){
+        return display;
     }
 }
