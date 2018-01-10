@@ -11,6 +11,6 @@ public class DisplayTest {
     public void testDisplayWhenNoCoinsPresent(){
         VendingMachine vendingMachine = new VendingMachine();
         assertTrue(0.00f == vendingMachine.getCoinsAccumulated());
-        assertEquals(vendingMachine.getDisplay(), "INSERT COIN");
+        assertEquals(vendingMachine.checkDisplay(), "INSERT COIN");
     }
 }

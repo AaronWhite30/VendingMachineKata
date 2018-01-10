@@ -42,7 +42,7 @@ public class VendingMachine {
         coinValid = false;
     }
 
-    public String getDisplay(){
+    public String checkDisplay(){
         return display;
     }
 }
