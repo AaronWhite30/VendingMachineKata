@@ -2,6 +2,7 @@ package com.pillar.vendingmachine.test;
 
 import com.pillar.vendingmachine.enumeratedType.Coin;
 import com.pillar.vendingmachine.VendingMachine;
+import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;
@@ -9,10 +10,15 @@ import static org.junit.Assert.assertFalse;
 
 public class AcceptCoinTest {
 
+    private VendingMachine vendingMachine;
+
+    @Before
+    public void setup(){
+        this.vendingMachine = new VendingMachine();
+    }
+
     @Test
     public void testAcceptCoinIsInvalid(){
-
-        VendingMachine vendingMachine = new VendingMachine();
         vendingMachine.insertCoin(Coin.penny);
         assertTrue(vendingMachine.isCoinSentToCoinReturn());
         vendingMachine.resetState();
@@ -21,7 +27,6 @@ public class AcceptCoinTest {
 
     @Test
     public void testAcceptCoinIsValid(){
-        VendingMachine vendingMachine = new VendingMachine();
         vendingMachine.insertCoin(Coin.nickel);
         assertTrue(vendingMachine.isCoinValid());
         vendingMachine.resetState();
