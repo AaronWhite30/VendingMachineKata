@@ -25,5 +25,7 @@ public class DisplayTest {
     public void testDisplayUpdatesWhenValidCoinIsInserted(){
         vendingMachine.insertCoin(Coin.quarter);
         assertEquals(vendingMachine.checkDisplay(), "0.25");
+        vendingMachine.insertCoin(Coin.nickel);
+        assertEquals(vendingMachine.checkDisplay(), "0.30");
     }
 }

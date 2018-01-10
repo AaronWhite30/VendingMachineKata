@@ -44,7 +44,8 @@ public class VendingMachine {
 
     public String checkDisplay(){
         if(accumulatedCoins.size() > 0){
-            display = "0.25";
+            float displayTotal = getCoinsAccumulated();
+            display = String.format("%.02f", displayTotal);
         }else {
             display = "INSERT COIN";
         }
