@@ -18,4 +18,11 @@ public class AcceptCoinTest {
         vendingMachine.resetState();
         assertFalse(vendingMachine.isCoinSentToCoinReturn());
     }
+
+    @Test
+    public void testAcceptCoinIsValid(){
+        VendingMachine vendingMachine = new VendingMachine();
+        vendingMachine.insertCoin(Coin.nickel);
+        assertTrue(vendingMachine.isCoinValid());
+    }
 }
