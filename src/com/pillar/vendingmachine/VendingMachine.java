@@ -10,6 +10,7 @@ public class VendingMachine {
     private String display;
     private boolean coinSentToCoinReturn = false;
     private boolean coinValid = false;
+    private boolean selectColaProduct = false;
     private List<Coin> accumulatedCoins = new ArrayList<>();
 
     public void insertCoin(Coin insertedCoin){
@@ -43,16 +44,26 @@ public class VendingMachine {
     }
 
     public String checkDisplay(){
-        if(accumulatedCoins.size() > 0){
-            float displayTotal = getCoinsAccumulated();
-            display = String.format("%.02f", displayTotal);
+        float displayTotal = getCoinsAccumulated();
+        if(selectColaProduct) {
+            if(displayTotal != 1.00f){
+                display = String.format("PRICE $%.02f", displayTotal);
+            }
         }else {
-            display = "INSERT COIN";
+            if (accumulatedCoins.size() > 0) {
+                display = String.format("$%.02f", displayTotal);
+            } else {
+                display = "INSERT COIN";
+            }
         }
         return display;
     }
 
     public void returnCoins(){
         accumulatedCoins.clear();
+    }
+
+    public void selectColaProduct(){
+        selectColaProduct = true;
     }
 }

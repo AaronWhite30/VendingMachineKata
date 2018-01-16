@@ -25,15 +25,23 @@ public class DisplayTest {
     @Test
     public void testDisplayUpdatesWhenValidCoinIsInserted(){
         vendingMachine.insertCoin(Coin.quarter);
-        assertEquals("0.25", vendingMachine.checkDisplay());
+        assertEquals("$0.25", vendingMachine.checkDisplay());
         vendingMachine.insertCoin(Coin.nickel);
-        assertEquals("0.30", vendingMachine.checkDisplay());
+        assertEquals("$0.30", vendingMachine.checkDisplay());
     }
 
     @Test
-    public void testDispalyUpdatesWhenReturnCoinsRequested(){
+    public void testDisplayUpdatesWhenReturnCoinsRequested(){
         vendingMachine.insertCoin(Coin.quarter);
         vendingMachine.returnCoins();
         assertEquals("INSERT COIN", vendingMachine.checkDisplay());
+    }
+
+    @Test
+    public void testSelectNotEnoughCoinsWhenSelectColaProduct(){
+        VendingMachine vendingMachine = new VendingMachine();
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.selectColaProduct();
+        assertEquals("PRICE $0.25", vendingMachine.checkDisplay());
     }
 }
