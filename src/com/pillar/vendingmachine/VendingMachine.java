@@ -10,7 +10,6 @@ public class VendingMachine {
     private String display;
     private boolean coinSentToCoinReturn = false;
     private boolean coinValid = false;
-    private boolean coinsSentToCoinReturn = false;
     private List<Coin> accumulatedCoins = new ArrayList<>();
 
     public void insertCoin(Coin insertedCoin){
@@ -41,7 +40,6 @@ public class VendingMachine {
     public void resetState(){
         coinSentToCoinReturn = false;
         coinValid = false;
-        coinsSentToCoinReturn = false;
     }
 
     public String checkDisplay(){
@@ -55,11 +53,6 @@ public class VendingMachine {
     }
 
     public void returnCoins(){
-        coinsSentToCoinReturn = true;
         accumulatedCoins.clear();
-    }
-
-    public boolean isCoinsSentToCoinReturn(){
-        return coinsSentToCoinReturn;
     }
 }
