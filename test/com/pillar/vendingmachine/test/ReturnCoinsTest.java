@@ -1,8 +1,10 @@
 package com.pillar.vendingmachine.test;
 
 import com.pillar.vendingmachine.VendingMachine;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.assertTrue;
 
 public class ReturnCoinsTest {
 
@@ -10,6 +12,8 @@ public class ReturnCoinsTest {
     public void testReturnCoinsWhenReturnCoinsRequested(){
         VendingMachine vendingMachine = new VendingMachine();
         vendingMachine.returnCoins();
-        Assert.assertTrue(vendingMachine.isCoinsSentToCoinReturn());
+        assertTrue(vendingMachine.isCoinsSentToCoinReturn());
+        vendingMachine.resetState();
+        assertFalse(vendingMachine.isCoinsSentToCoinReturn());
     }
 }

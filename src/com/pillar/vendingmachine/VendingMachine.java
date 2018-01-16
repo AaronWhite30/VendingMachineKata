@@ -41,6 +41,7 @@ public class VendingMachine {
     public void resetState(){
         coinSentToCoinReturn = false;
         coinValid = false;
+        coinsSentToCoinReturn = false;
     }
 
     public String checkDisplay(){
