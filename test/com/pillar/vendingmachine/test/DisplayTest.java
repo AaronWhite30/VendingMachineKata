@@ -2,6 +2,7 @@ package com.pillar.vendingmachine.test;
 
 import com.pillar.vendingmachine.VendingMachine;
 import com.pillar.vendingmachine.enumeratedType.Coin;
+import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -27,5 +28,12 @@ public class DisplayTest {
         assertEquals(vendingMachine.checkDisplay(), "0.25");
         vendingMachine.insertCoin(Coin.nickel);
         assertEquals(vendingMachine.checkDisplay(), "0.30");
+    }
+
+    @Test
+    public void testReturnCoinsRequestedAccumulatedCoinsIsZero(){
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.returnCoins();
+        assertEquals(vendingMachine.checkDisplay(), "INSERT COIN");
     }
 }
