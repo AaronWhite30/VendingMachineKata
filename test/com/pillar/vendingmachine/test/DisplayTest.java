@@ -77,4 +77,16 @@ public class DisplayTest {
         assertEquals("$0.25", vendingMachine.checkDisplay());
     }
 
+    @Test
+    public void testExactCoinsPresentWhenSelectColaSoldOutProduct(){
+        vendingMachine.setColaProductAvailable(false);
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.selectColaProduct();
+        assertEquals("SOLD OUT", vendingMachine.checkDisplay());
+        vendingMachine.resetState();
+        assertEquals("$1.00", vendingMachine.checkDisplay());
+    }
 }
