@@ -31,7 +31,7 @@ public class DisplayTest {
     }
 
     @Test
-    public void testReturnCoinsRequestedAccumulatedCoinsIsZero(){
+    public void testDispalyUpdatesWhenReturnCoinsRequested(){
         vendingMachine.insertCoin(Coin.quarter);
         vendingMachine.returnCoins();
         assertEquals(vendingMachine.checkDisplay(), "INSERT COIN");
