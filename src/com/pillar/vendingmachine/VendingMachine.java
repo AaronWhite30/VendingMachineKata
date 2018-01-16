@@ -1,6 +1,7 @@
 package com.pillar.vendingmachine;
 
 import com.pillar.vendingmachine.enumeratedType.Coin;
+import com.pillar.vendingmachine.enumeratedType.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ public class VendingMachine {
     private boolean coinSentToCoinReturn = false;
     private boolean coinValid = false;
     private boolean selectColaProduct = false;
+    private boolean colaProductAvailable = true;
     private List<Coin> accumulatedCoins = new ArrayList<>();
 
     public void insertCoin(Coin insertedCoin){
@@ -47,11 +49,15 @@ public class VendingMachine {
     public String checkDisplay(){
         float coinsAccumulated = getCoinsAccumulated();
         if(selectColaProduct) {
-            if(coinsAccumulated == 1.00f){
-                display = "THANK YOU";
-                bankAccumulatedCoins();
-            }else{
-                display = "PRICE $1.00";
+            if(!colaProductAvailable){
+                display = "SOLD OUT";
+            }else {
+                if (coinsAccumulated == 1.00f) {
+                    display = "THANK YOU";
+                    bankAccumulatedCoins();
+                } else {
+                    display = "PRICE $1.00";
+                }
             }
         }else {
             if (accumulatedCoins.size() > 0) {
@@ -77,5 +83,9 @@ public class VendingMachine {
 
     private void bankAccumulatedCoins(){
         accumulatedCoins.clear();
+    }
+
+    public void setColaProductAvailable(boolean available){
+        colaProductAvailable = available;
     }
 }

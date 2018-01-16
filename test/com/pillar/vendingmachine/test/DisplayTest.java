@@ -2,6 +2,7 @@ package com.pillar.vendingmachine.test;
 
 import com.pillar.vendingmachine.VendingMachine;
 import com.pillar.vendingmachine.enumeratedType.Coin;
+import com.pillar.vendingmachine.enumeratedType.Product;
 import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
@@ -56,6 +57,14 @@ public class DisplayTest {
         vendingMachine.insertCoin(Coin.quarter);
         vendingMachine.selectColaProduct();
         assertEquals("THANK YOU", vendingMachine.checkDisplay());
+        vendingMachine.resetState();
+        assertEquals("INSERT COIN", vendingMachine.checkDisplay());
+    }
+    @Test
+    public void testNoCoinsPresentWhenSelectColaSoldOutProduct(){
+        vendingMachine.setColaProductAvailable(false);
+        vendingMachine.selectColaProduct();
+        assertEquals("SOLD OUT", vendingMachine.checkDisplay());
         vendingMachine.resetState();
         assertEquals("INSERT COIN", vendingMachine.checkDisplay());
     }
