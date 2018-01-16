@@ -12,6 +12,7 @@ public class VendingMachine {
     private boolean coinValid = false;
     private boolean selectColaProduct = false;
     private boolean colaProductAvailable = true;
+    private boolean changeSentToCoinReturn = false;
     private List<Coin> accumulatedCoins = new ArrayList<>();
 
     public void insertCoin(Coin insertedCoin){
@@ -43,6 +44,7 @@ public class VendingMachine {
         coinSentToCoinReturn = false;
         coinValid = false;
         selectColaProduct = false;
+        changeSentToCoinReturn = false;
     }
 
     public String checkDisplay(){
@@ -74,6 +76,10 @@ public class VendingMachine {
 
     public void selectColaProduct(){
         selectColaProduct = true;
+        float coinsAccumulated = getCoinsAccumulated();
+        if (coinsAccumulated > 1.00f) {
+            changeSentToCoinReturn = true;
+        }
     }
 
     public boolean isSelectColaProduct(){
@@ -86,5 +92,9 @@ public class VendingMachine {
 
     public void setColaProductAvailable(boolean available){
         colaProductAvailable = available;
+    }
+
+    public boolean changeSentToCoinReturn(){
+        return changeSentToCoinReturn;
     }
 }
