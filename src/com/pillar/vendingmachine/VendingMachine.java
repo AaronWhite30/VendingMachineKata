@@ -44,14 +44,14 @@ public class VendingMachine {
     }
 
     public String checkDisplay(){
-        float displayTotal = getCoinsAccumulated();
+        float coinsAccumulated = getCoinsAccumulated();
         if(selectColaProduct) {
-            if(displayTotal != 1.00f){
-                display = String.format("PRICE $%.02f", displayTotal);
+            if(coinsAccumulated != 1.00f){
+                display = "PRICE $1.00";
             }
         }else {
             if (accumulatedCoins.size() > 0) {
-                display = String.format("$%.02f", displayTotal);
+                display = String.format("$%.02f", coinsAccumulated);
             } else {
                 display = "INSERT COIN";
             }

@@ -42,6 +42,6 @@ public class DisplayTest {
         VendingMachine vendingMachine = new VendingMachine();
         vendingMachine.insertCoin(Coin.quarter);
         vendingMachine.selectColaProduct();
-        assertEquals("PRICE $0.25", vendingMachine.checkDisplay());
+        assertEquals("PRICE $1.00", vendingMachine.checkDisplay());
     }
 }
