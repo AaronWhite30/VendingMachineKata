@@ -56,6 +56,7 @@ public class VendingMachine {
 
     public void returnCoins(){
         coinsSentToCoinReturn = true;
+        accumulatedCoins.clear();
     }
 
     public boolean isCoinsSentToCoinReturn(){

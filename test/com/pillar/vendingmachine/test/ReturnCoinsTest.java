@@ -1,6 +1,7 @@
 package com.pillar.vendingmachine.test;
 
 import com.pillar.vendingmachine.VendingMachine;
+import com.pillar.vendingmachine.enumeratedType.Coin;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertFalse;
@@ -15,5 +16,13 @@ public class ReturnCoinsTest {
         assertTrue(vendingMachine.isCoinsSentToCoinReturn());
         vendingMachine.resetState();
         assertFalse(vendingMachine.isCoinsSentToCoinReturn());
+    }
+
+    @Test
+    public void testReturnCoinsRequestedAccumulatedCoinsIsZero(){
+        VendingMachine vendingMachine = new VendingMachine();
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.returnCoins();
+        assertTrue(vendingMachine.getCoinsAccumulated() == 0.00f);
     }
 }
