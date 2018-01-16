@@ -47,7 +47,10 @@ public class VendingMachine {
     public String checkDisplay(){
         float coinsAccumulated = getCoinsAccumulated();
         if(selectColaProduct) {
-            if(coinsAccumulated != 1.00f){
+            if(coinsAccumulated == 1.00f){
+                display = "THANK YOU";
+                bankAccumulatedCoins();
+            }else{
                 display = "PRICE $1.00";
             }
         }else {
@@ -70,5 +73,9 @@ public class VendingMachine {
 
     public boolean isSelectColaProduct(){
         return selectColaProduct;
+    }
+
+    private void bankAccumulatedCoins(){
+        accumulatedCoins.clear();
     }
 }

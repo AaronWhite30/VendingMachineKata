@@ -39,13 +39,24 @@ public class DisplayTest {
     }
 
     @Test
-    public void testSelectNotEnoughCoinsWhenSelectColaProduct(){
-        VendingMachine vendingMachine = new VendingMachine();
+    public void testNotEnoughCoinsWhenSelectColaProduct(){
         vendingMachine.insertCoin(Coin.quarter);
         vendingMachine.selectColaProduct();
         assertEquals("PRICE $1.00", vendingMachine.checkDisplay());
         vendingMachine.resetState();
         assertFalse(vendingMachine.isSelectColaProduct());
         assertEquals("$0.25", vendingMachine.checkDisplay());
+    }
+
+    @Test
+    public void testExactCoinsPresentWhenSelectColaProduct(){
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.insertCoin(Coin.quarter);
+        vendingMachine.selectColaProduct();
+        assertEquals("THANK YOU", vendingMachine.checkDisplay());
+        vendingMachine.resetState();
+        assertEquals("INSERT COIN", vendingMachine.checkDisplay());
     }
 }
