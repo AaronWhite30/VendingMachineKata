@@ -2,8 +2,6 @@ package com.pillar.vendingmachine.test;
 
 import com.pillar.vendingmachine.VendingMachine;
 import com.pillar.vendingmachine.enumeratedType.Coin;
-import com.pillar.vendingmachine.enumeratedType.Product;
-import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;

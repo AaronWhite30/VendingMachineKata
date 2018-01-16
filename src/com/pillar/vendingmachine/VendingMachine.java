@@ -1,7 +1,6 @@
 package com.pillar.vendingmachine;
 
 import com.pillar.vendingmachine.enumeratedType.Coin;
-import com.pillar.vendingmachine.enumeratedType.Product;
 
 import java.util.ArrayList;
 import java.util.List;
