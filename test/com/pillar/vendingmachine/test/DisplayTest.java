@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class DisplayTest {
@@ -43,5 +44,8 @@ public class DisplayTest {
         vendingMachine.insertCoin(Coin.quarter);
         vendingMachine.selectColaProduct();
         assertEquals("PRICE $1.00", vendingMachine.checkDisplay());
+        vendingMachine.resetState();
+        assertFalse(vendingMachine.isSelectColaProduct());
+        assertEquals("$0.25", vendingMachine.checkDisplay());
     }
 }

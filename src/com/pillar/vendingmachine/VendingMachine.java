@@ -41,6 +41,7 @@ public class VendingMachine {
     public void resetState(){
         coinSentToCoinReturn = false;
         coinValid = false;
+        selectColaProduct = false;
     }
 
     public String checkDisplay(){
@@ -65,5 +66,9 @@ public class VendingMachine {
 
     public void selectColaProduct(){
         selectColaProduct = true;
+    }
+
+    public boolean isSelectColaProduct(){
+        return selectColaProduct;
     }
 }
