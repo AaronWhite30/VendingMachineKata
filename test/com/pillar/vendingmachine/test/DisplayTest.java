@@ -19,21 +19,21 @@ public class DisplayTest {
     @Test
     public void testDisplayWhenNoCoinsPresent(){
         assertTrue(0.00f == vendingMachine.getCoinsAccumulated());
-        assertEquals(vendingMachine.checkDisplay(), "INSERT COIN");
+        assertEquals("INSERT COIN", vendingMachine.checkDisplay());
     }
 
     @Test
     public void testDisplayUpdatesWhenValidCoinIsInserted(){
         vendingMachine.insertCoin(Coin.quarter);
-        assertEquals(vendingMachine.checkDisplay(), "0.25");
+        assertEquals("0.25", vendingMachine.checkDisplay());
         vendingMachine.insertCoin(Coin.nickel);
-        assertEquals(vendingMachine.checkDisplay(), "0.30");
+        assertEquals("0.30", vendingMachine.checkDisplay());
     }
 
     @Test
     public void testDispalyUpdatesWhenReturnCoinsRequested(){
         vendingMachine.insertCoin(Coin.quarter);
         vendingMachine.returnCoins();
-        assertEquals(vendingMachine.checkDisplay(), "INSERT COIN");
+        assertEquals("INSERT COIN", vendingMachine.checkDisplay());
     }
 }
