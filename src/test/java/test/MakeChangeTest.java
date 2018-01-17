@@ -1,4 +1,4 @@
-package com.pillar.vendingmachine.test;
+package test;
 
 import com.pillar.vendingmachine.VendingMachine;
 import com.pillar.vendingmachine.enumeratedType.Coin;
