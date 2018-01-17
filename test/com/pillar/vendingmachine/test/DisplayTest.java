@@ -14,6 +14,7 @@ public class DisplayTest {
     @Before
     public void setup(){
         this.vendingMachine = new VendingMachine();
+        this.vendingMachine.addToBankedCoins(Coin.dime);
     }
 
     @Test
@@ -88,5 +89,11 @@ public class DisplayTest {
         assertEquals("SOLD OUT", vendingMachine.checkDisplay());
         vendingMachine.resetState();
         assertEquals("$1.00", vendingMachine.checkDisplay());
+    }
+
+    @Test
+    public void testExactChangeOnlyWhenBankedCoinsIsEmpty(){
+        vendingMachine.emptyBankedCoins();
+        assertEquals("EXACT CHANGE ONLY", vendingMachine.checkDisplay());
     }
 }

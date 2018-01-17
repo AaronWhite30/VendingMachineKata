@@ -3,6 +3,7 @@ package com.pillar.vendingmachine;
 import com.pillar.vendingmachine.enumeratedType.Coin;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class VendingMachine {
@@ -14,6 +15,7 @@ public class VendingMachine {
     private boolean colaProductAvailable = true;
     private boolean changeSentToCoinReturn = false;
     private List<Coin> accumulatedCoins = new ArrayList<>();
+    private List<Coin> bankedCoins = new ArrayList<>();
 
     public void insertCoin(Coin insertedCoin){
         if(insertedCoin != Coin.penny){
@@ -64,7 +66,11 @@ public class VendingMachine {
             if (accumulatedCoins.size() > 0) {
                 display = String.format("$%.02f", coinsAccumulated);
             } else {
-                display = "INSERT COIN";
+                if(bankedCoins.size() == 0){
+                    display = "EXACT CHANGE ONLY";
+                }else {
+                    display = "INSERT COIN";
+                }
             }
         }
         return display;
@@ -87,6 +93,7 @@ public class VendingMachine {
     }
 
     private void bankAccumulatedCoins(){
+        bankedCoins.addAll(Collections.unmodifiableList(accumulatedCoins));
         accumulatedCoins.clear();
     }
 
@@ -96,5 +103,13 @@ public class VendingMachine {
 
     public boolean changeSentToCoinReturn(){
         return changeSentToCoinReturn;
+    }
+
+    public void addToBankedCoins(Coin coin){
+        bankedCoins.add(coin);
+    }
+
+    public void emptyBankedCoins(){
+        bankedCoins.clear();
     }
 }
