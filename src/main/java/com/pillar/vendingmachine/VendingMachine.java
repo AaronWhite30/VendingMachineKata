@@ -78,8 +78,7 @@ public class VendingMachine {
         selectColaProduct = true;
         float coinsAccumulated = getCoinsAccumulated();
         if (coinsAccumulated > 1.00f) {
-            float priceDifference = coinsAccumulated - 1.00f;
-            coinsSentToCoinReturn = priceDifference;
+            coinsSentToCoinReturn = coinsAccumulated - 1.00f;
         }
     }
 
