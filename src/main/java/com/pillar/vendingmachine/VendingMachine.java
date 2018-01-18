@@ -9,7 +9,6 @@ import java.util.List;
 public class VendingMachine {
 
     private String display;
-    private boolean coinSentToCoinReturn = false;
     private boolean coinValid = false;
     private boolean selectColaProduct = false;
     private boolean colaProductAvailable = true;
@@ -26,10 +25,6 @@ public class VendingMachine {
         }
     }
 
-    public boolean isCoinSentToCoinReturn(){
-        return coinSentToCoinReturn;
-    }
-
     public boolean isCoinValid(){
         return coinValid;
     }
@@ -43,7 +38,6 @@ public class VendingMachine {
     }
 
     public void resetState(){
-        coinSentToCoinReturn = false;
         coinValid = false;
         selectColaProduct = false;
         coinsSentToCoinReturn = 0f;
