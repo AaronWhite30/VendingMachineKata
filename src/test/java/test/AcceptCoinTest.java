@@ -5,6 +5,7 @@ import com.pillar.vendingmachine.VendingMachine;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
@@ -20,9 +21,9 @@ public class AcceptCoinTest {
     @Test
     public void testAcceptCoinIsInvalid(){
         vendingMachine.insertCoin(Coin.penny);
-        assertTrue(vendingMachine.isCoinSentToCoinReturn());
+        assertEquals(Coin.penny.getCoinValue(), vendingMachine.getCoinsSentToCoinReturn(),0f);
         vendingMachine.resetState();
-        assertFalse(vendingMachine.isCoinSentToCoinReturn());
+        assertEquals(0.00f, vendingMachine.getCoinsSentToCoinReturn(),0f);
     }
 
     @Test

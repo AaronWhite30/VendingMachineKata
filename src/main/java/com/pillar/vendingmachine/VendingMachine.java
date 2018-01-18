@@ -22,7 +22,7 @@ public class VendingMachine {
             coinValid = true;
             accumulatedCoins.add(insertedCoin);
         }else{
-            coinSentToCoinReturn = true;
+            coinsSentToCoinReturn = insertedCoin.getCoinValue();
         }
     }
 
