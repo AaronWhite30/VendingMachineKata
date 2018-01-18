@@ -13,9 +13,9 @@ public class VendingMachine {
     private boolean coinValid = false;
     private boolean selectColaProduct = false;
     private boolean colaProductAvailable = true;
-    private boolean changeSentToCoinReturn = false;
     private List<Coin> accumulatedCoins = new ArrayList<Coin>();
     private List<Coin> bankedCoins = new ArrayList<Coin>();
+    private float coinsSentToCoinReturn = 0f;
 
     public void insertCoin(Coin insertedCoin){
         if(insertedCoin != Coin.penny){
@@ -46,7 +46,7 @@ public class VendingMachine {
         coinSentToCoinReturn = false;
         coinValid = false;
         selectColaProduct = false;
-        changeSentToCoinReturn = false;
+        coinsSentToCoinReturn = 0f;
     }
 
     public String checkDisplay(){
@@ -84,7 +84,8 @@ public class VendingMachine {
         selectColaProduct = true;
         float coinsAccumulated = getCoinsAccumulated();
         if (coinsAccumulated > 1.00f) {
-            changeSentToCoinReturn = true;
+            float priceDifference = coinsAccumulated - 1.00f;
+            coinsSentToCoinReturn = priceDifference;
         }
     }
 
@@ -101,10 +102,6 @@ public class VendingMachine {
         colaProductAvailable = available;
     }
 
-    public boolean changeSentToCoinReturn(){
-        return changeSentToCoinReturn;
-    }
-
     public void addToBankedCoins(Coin coin){
         bankedCoins.add(coin);
     }
@@ -114,6 +111,6 @@ public class VendingMachine {
     }
 
     public float getCoinsSentToCoinReturn(){
-        return 0.25f;
+        return coinsSentToCoinReturn;
     }
 }

@@ -5,8 +5,6 @@ import com.pillar.vendingmachine.enumeratedType.Coin;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class MakeChangeTest {
 
@@ -21,6 +19,6 @@ public class MakeChangeTest {
         vendingMachine.selectColaProduct();
         assertEquals(0.25f, vendingMachine.getCoinsSentToCoinReturn(),0f);
         vendingMachine.resetState();
-        assertFalse(vendingMachine.changeSentToCoinReturn());
+        assertEquals(0.00f, vendingMachine.getCoinsSentToCoinReturn(),0f);
     }
 }
