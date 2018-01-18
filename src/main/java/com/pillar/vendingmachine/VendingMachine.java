@@ -112,4 +112,8 @@ public class VendingMachine {
     public void emptyBankedCoins(){
         bankedCoins.clear();
     }
+
+    public float getCoinsSentToCoinReturn(){
+        return 0.25f;
+    }
 }
