@@ -71,6 +71,7 @@ public class VendingMachine {
     }
 
     public void returnCoins(){
+        coinsSentToCoinReturn = getCoinsAccumulated();
         accumulatedCoins.clear();
     }
 

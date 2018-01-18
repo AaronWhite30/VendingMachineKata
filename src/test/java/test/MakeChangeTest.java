@@ -17,7 +17,7 @@ public class MakeChangeTest {
         vendingMachine.insertCoin(Coin.quarter);
         vendingMachine.insertCoin(Coin.quarter);
         vendingMachine.selectColaProduct();
-        assertEquals(0.25f, vendingMachine.getCoinsSentToCoinReturn(),0f);
+        assertEquals(Coin.quarter.getCoinValue(), vendingMachine.getCoinsSentToCoinReturn(),0f);
         vendingMachine.resetState();
         assertEquals(0.00f, vendingMachine.getCoinsSentToCoinReturn(),0f);
     }
